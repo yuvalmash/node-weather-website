@@ -1,5 +1,7 @@
 const request = require('request')
 
+
+
 //old ver
 // const url = 'http://api.openweathermap.org/data/2.5/weather?appid=8a866af00ee82ce111ea4a7a0ea10e2a&units=metric&lat=37.7648&lon=-122.463'
 // request({ url: url, json: true }, (error, response) => {
@@ -23,7 +25,8 @@ const forecast = (lat, lon, callback) => {
         } else if (body.message) {
             callback("unable to find location!", undefined)
         } else {
-            callback(undefined, 'Today there is a ' + body.weather[0].description + ' with ' + body.main.temp + ' celsius in ' + body.name + '')
+            // console.log(body)
+            callback(undefined, 'Today there is a ' + body.weather[0].description + ' with ' + body.main.temp + ' celsius in ' + body.name + ' .The max temperature of this day will be ' + body.main.temp_min + ' celsius \nand the max temperature of this day will be ' + body.main.temp_max + ' celsius')
         }
     })
 }
